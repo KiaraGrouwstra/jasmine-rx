@@ -1,0 +1,25 @@
+{
+  "name": "jasmine-rx",
+  "version": "0.1.5",
+  "description": "Integrates jasmine and rx",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "bitbucket.org/skoppe/jasmine-rx"
+  },
+  "keywords": [
+    "jasmine",
+    "test",
+    "rx",
+    "RxJS",
+    "Reactive",
+    "observable",
+    "TDD",
+    "testing"
+  ],
+  "author": "Sebastiaan Koppe",
+  "dependencies": {
+    "rx": "^2.5.3"
+  },
+  "license": "WTFPL"
+}
