@@ -145,8 +145,8 @@ describe("Rx.Observable.expect",function()
 		function()
 		{
 			var s = new Rx.AsyncSubject();
-			s.onNext({headers:{allow:'GET,PUT'}});
-			s.onCompleted();
+			s.next({headers:{allow:'GET,PUT'}});
+			s.complete();
 			return s.pluck('headers','allow').expect().toMatch(/GET/);
 		}
 	);
@@ -154,8 +154,8 @@ describe("Rx.Observable.expect",function()
 		function()
 		{
 			var s = new Rx.AsyncSubject();
-			s.onNext({headers:{allow:'GET,PUT'}});
-			s.onCompleted();
+			s.next({headers:{allow:'GET,PUT'}});
+			s.complete();
 			return s.expect('headers','allow').toMatch(/GET/);
 		}
 	);
@@ -166,8 +166,8 @@ describe("Rx.Observable.fallthrough",function()
 		function()
 		{
 			var s = new Rx.AsyncSubject();
-			s.onNext({headers:{allow:'GET,PUT'}});
-			s.onCompleted();
+			s.next({headers:{allow:'GET,PUT'}});
+			s.complete();
 			return s.map(function(v){ throw v; }).fallthrough().pluck('headers','allow').expect().toMatch(/GET/);
 		}
 	);
@@ -178,8 +178,8 @@ describe("Rx.Observable.iterate", function()
 	{
 		var s = new Rx.AsyncSubject();
 		var total = 0;
-		s.onNext([1,2,3,4]);
-		s.onCompleted();
+		s.next([1,2,3,4]);
+		s.complete();
 		return s.iterate().reduce(function(acc,value){return acc+value},0).expect().toBe(10);
 	});
 	it("should fail if the value is not an array",function()
@@ -187,8 +187,8 @@ describe("Rx.Observable.iterate", function()
 		var s = new Rx.Subject();
 		var total = 0;
 		s.iterate().subscribe(function(value){ total += value; });
-		expect(function(){s.onNext(1)}).toThrow();
-		s.onCompleted();
+		expect(function(){s.next(1)}).toThrow();
+		s.complete();
 	});
 })
 describe("Rx.Observable.expectSome",function()
@@ -197,8 +197,8 @@ describe("Rx.Observable.expectSome",function()
 	{
 		var s = new Rx.AsyncSubject();
 		var total = 0;
-		s.onNext([1,2,3,4]);
-		s.onCompleted();
+		s.next([1,2,3,4]);
+		s.complete();
 		return s.iterate().expectSome().toBe(3);
 	});
 });
