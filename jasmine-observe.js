@@ -1,4 +1,4 @@
-var Rx = require('rx');
+var Rx = require('rxjs');
 var rxit = require('./rxit.js');
 
 function RxExpect(observable)
