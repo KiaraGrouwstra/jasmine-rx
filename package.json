@@ -19,7 +19,7 @@
   ],
   "author": "Sebastiaan Koppe",
   "dependencies": {
-    "rx": "^2.5.3"
+    "rxjs": "latest"
   },
   "license": "WTFPL"
 }
